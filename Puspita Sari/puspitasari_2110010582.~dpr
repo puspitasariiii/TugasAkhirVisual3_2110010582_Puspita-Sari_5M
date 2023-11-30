@@ -1,0 +1,29 @@
+program puspitasari_2110010582;
+
+uses
+  Forms,
+  UPendaftaran in 'UPendaftaran.pas' {FPendaftaran},
+  UDM in 'UDM.pas' {DM: TDataModule},
+  ULogin in 'ULogin.pas' {FLogin},
+  UMenu in 'UMenu.pas' {FMenu},
+  URusakHilang in 'URusakHilang.pas' {FRusakHilang},
+  UPengguna in 'UPengguna.pas' {FPengguna},
+  UUkuran in 'UUkuran.pas' {FUkuran},
+  UProduk in 'UProduk.pas' {FProduk},
+  UPembelian in 'UPembelian.pas' {FPembelian};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TDM, DM);
+  Application.CreateForm(TFLogin, FLogin);
+  Application.CreateForm(TFMenu, FMenu);
+  Application.CreateForm(TFRusakHilang, FRusakHilang);
+  Application.CreateForm(TFPendaftaran, FPendaftaran);
+  Application.CreateForm(TFPengguna, FPengguna);
+  Application.CreateForm(TFUkuran, FUkuran);
+  Application.CreateForm(TFProduk, FProduk);
+  Application.CreateForm(TFPembelian, FPembelian);
+  Application.Run;
+end.

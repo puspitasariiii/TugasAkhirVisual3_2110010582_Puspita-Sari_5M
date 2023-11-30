@@ -1,0 +1,718 @@
+object DM: TDM
+  OldCreateOrder = False
+  Left = 162
+  Top = 147
+  Height = 499
+  Width = 594
+  object Koneksi: TADOConnection
+    Connected = True
+    ConnectionString = 
+      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=Data.mdb;Persist Se' +
+      'curity Info=False;Jet OLEDB:Database Password=asyraf123'
+    LoginPrompt = False
+    Mode = cmShareDenyNone
+    Provider = 'Microsoft.Jet.OLEDB.4.0'
+    Left = 56
+    Top = 8
+  end
+  object Command: TADOCommand
+    Connection = Koneksi
+    Parameters = <>
+    Left = 168
+    Top = 8
+  end
+  object tpengguna: TADODataSet
+    Active = True
+    Connection = Koneksi
+    CursorType = ctStatic
+    CommandText = 'select * from tpengguna'
+    Parameters = <>
+    Left = 56
+    Top = 72
+  end
+  object dstpengguna: TDataSource
+    DataSet = tpengguna
+    Left = 168
+    Top = 72
+  end
+  object XP: TXPManifest
+    Left = 256
+    Top = 8
+  end
+  object Laporan: TfrxReport
+    Version = '4.9.35'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Default'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 45259.457355752300000000
+    ReportOptions.LastChange = 45259.720237534720000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      'begin'
+      ''
+      'end.')
+    Left = 328
+    Top = 8
+    Datasets = <
+      item
+        DataSet = frxlabarugi
+        DataSetName = 'frxlabarugi'
+      end>
+    Variables = <>
+    Style = <>
+    object Data: TfrxDataPage
+      Height = 1000.000000000000000000
+      Width = 1000.000000000000000000
+    end
+    object Page1: TfrxReportPage
+      Orientation = poLandscape
+      PaperWidth = 297.000000000000000000
+      PaperHeight = 210.000000000000000000
+      PaperSize = 9
+      LeftMargin = 10.000000000000000000
+      RightMargin = 10.000000000000000000
+      TopMargin = 10.000000000000000000
+      BottomMargin = 10.000000000000000000
+      object PageHeader1: TfrxPageHeader
+        Height = 442.790816360000000000
+        Top = 18.897650000000000000
+        Width = 1046.929810000000000000
+        object Memo1: TfrxMemoView
+          Align = baWidth
+          Top = 7.465986360000000000
+          Width = 1046.929810000000000000
+          Height = 57.079468180000000000
+          ShowHint = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'CV SABILAL'
+            'AIR MINERAL SABILAL'
+            'Jalan A Yani Km 20 No. 10 Banjarbaru Handphone 0821565543')
+          ParentFont = False
+        end
+        object Memo2: TfrxMemoView
+          Align = baWidth
+          Top = 74.738713640000000000
+          Width = 1046.929810000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'LAPORAN LABA/RUGI')
+          ParentFont = False
+        end
+        object Line1: TfrxLineView
+          Align = baWidth
+          Top = 99.284168180000000000
+          Width = 1046.929810000000000000
+          ShowHint = False
+          Frame.Typ = [ftTop]
+        end
+        object Memo13: TfrxMemoView
+          Left = 755.340909090000000000
+          Top = 373.748144550000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haRight
+          Memo.UTF8 = (
+            'Banjarbaru,')
+          ParentFont = False
+        end
+        object Memo14: TfrxMemoView
+          Left = 849.886363640000000000
+          Top = 372.839053640000000000
+          Width = 141.760977270000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          DisplayFormat.FormatStr = 'dd mmmmmmmm yyyy'
+          DisplayFormat.Kind = fkDateTime
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8 = (
+            '[Date]')
+          ParentFont = False
+        end
+        object Memo3: TfrxMemoView
+          Left = 300.000000000000000000
+          Top = 171.102350000000000000
+          Width = 140.738250000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HAlign = haRight
+          Memo.UTF8 = (
+            'Total Penjualan')
+          ParentFont = False
+        end
+        object Memo4: TfrxMemoView
+          Left = 298.750000000000000000
+          Top = 207.352350000000000000
+          Width = 140.738250000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HAlign = haRight
+          Memo.UTF8 = (
+            'Total Pembelian')
+          ParentFont = False
+        end
+        object Memo5: TfrxMemoView
+          Left = 241.250000000000000000
+          Top = 238.602350000000000000
+          Width = 199.488250000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HAlign = haRight
+          Memo.UTF8 = (
+            'Total Kerugian Rusak/Hilang')
+          ParentFont = False
+        end
+        object Memo6: TfrxMemoView
+          Left = 471.250000000000000000
+          Top = 172.352350000000000000
+          Width = 199.488250000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          DisplayFormat.FormatStr = '%.2n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[frxlabarugi."total_penjualan"]')
+          ParentFont = False
+        end
+        object Memo7: TfrxMemoView
+          Left = 471.250000000000000000
+          Top = 207.352350000000000000
+          Width = 198.238250000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          DisplayFormat.FormatStr = '%.2n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[frxlabarugi."total_pembelian"]')
+          ParentFont = False
+        end
+        object Memo8: TfrxMemoView
+          Left = 471.250000000000000000
+          Top = 238.602350000000000000
+          Width = 199.488250000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          DisplayFormat.FormatStr = '%.2n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[frxlabarugi."total_rusakhilang"]')
+          ParentFont = False
+        end
+        object Memo9: TfrxMemoView
+          Left = 240.000000000000000000
+          Top = 282.352350000000000000
+          Width = 199.488250000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HAlign = haRight
+          Memo.UTF8 = (
+            'Total Laba/Rugi')
+          ParentFont = False
+        end
+        object Memo10: TfrxMemoView
+          Left = 470.000000000000000000
+          Top = 282.352350000000000000
+          Width = 199.488250000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          DisplayFormat.FormatStr = '%.2n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[frxlabarugi."total_labarugi"]')
+          ParentFont = False
+        end
+        object Memo11: TfrxMemoView
+          Left = 345.000000000000000000
+          Top = 322.352350000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HAlign = haRight
+          Memo.UTF8 = (
+            'Keterangan')
+          ParentFont = False
+        end
+        object Memo12: TfrxMemoView
+          Left = 471.250000000000000000
+          Top = 324.852350000000000000
+          Width = 199.488250000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[frxlabarugi."keterangan"]')
+          ParentFont = False
+        end
+        object Line2: TfrxLineView
+          Left = 245.000000000000000000
+          Top = 268.602350000000000000
+          Width = 430.000000000000000000
+          ShowHint = False
+          Frame.Typ = [ftTop]
+        end
+        object Memo15: TfrxMemoView
+          Left = 685.000000000000000000
+          Top = 243.602350000000000000
+          Width = 30.738250000000000000
+          Height = 18.897650000000000000
+          ShowHint = False
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '(-)')
+          ParentFont = False
+        end
+      end
+    end
+  end
+  object frxpengguna: TfrxDBDataset
+    UserName = 'frxpengguna'
+    CloseDataSource = False
+    DataSet = tpengguna
+    BCDToCurrency = False
+    Left = 256
+    Top = 72
+  end
+  object tukuran: TADODataSet
+    Active = True
+    Connection = Koneksi
+    CursorType = ctStatic
+    CommandText = 'select * from tukuran'
+    Parameters = <>
+    Left = 56
+    Top = 128
+  end
+  object dsukuran: TDataSource
+    DataSet = tukuran
+    Left = 168
+    Top = 128
+  end
+  object frxukuran: TfrxDBDataset
+    UserName = 'frxukuran'
+    CloseDataSource = False
+    DataSet = tukuran
+    BCDToCurrency = False
+    Left = 256
+    Top = 128
+  end
+  object tproduk: TADODataSet
+    Active = True
+    Connection = Koneksi
+    CursorType = ctStatic
+    CommandText = 'select * from tproduk'
+    Parameters = <>
+    Left = 56
+    Top = 184
+    object tprodukID: TAutoIncField
+      FieldName = 'ID'
+      ReadOnly = True
+    end
+    object tproduknama: TWideStringField
+      FieldName = 'nama'
+      Size = 50
+    end
+    object tprodukid_ukuran: TSmallintField
+      FieldName = 'id_ukuran'
+    end
+    object tprodukukuran: TStringField
+      FieldKind = fkLookup
+      FieldName = 'ukuran'
+      LookupDataSet = tukuran
+      LookupKeyFields = 'ID'
+      LookupResultField = 'nama'
+      KeyFields = 'ID'
+      Size = 30
+      Lookup = True
+    end
+    object tprodukberat: TFloatField
+      FieldName = 'berat'
+    end
+    object tprodukstok_botol: TIntegerField
+      FieldName = 'stok_botol'
+    end
+    object tprodukstok_dus: TIntegerField
+      FieldName = 'stok_dus'
+    end
+    object tprodukharga_beli_botol: TFloatField
+      FieldName = 'harga_beli_botol'
+    end
+    object tprodukharga_beli_dus: TFloatField
+      FieldName = 'harga_beli_dus'
+    end
+    object tprodukharga_jual_botol: TFloatField
+      FieldName = 'harga_jual_botol'
+    end
+    object tprodukharga_jual_dus: TFloatField
+      FieldName = 'harga_jual_dus'
+    end
+  end
+  object dsproduk: TDataSource
+    DataSet = tproduk
+    Left = 168
+    Top = 184
+  end
+  object frxproduk: TfrxDBDataset
+    UserName = 'frxproduk'
+    CloseDataSource = False
+    DataSet = tproduk
+    BCDToCurrency = False
+    Left = 256
+    Top = 184
+  end
+  object tpembelian: TADODataSet
+    Active = True
+    Connection = Koneksi
+    CursorType = ctStatic
+    CommandText = 'select * from tpembelian'
+    Parameters = <>
+    Left = 56
+    Top = 248
+    object tpembelianID: TAutoIncField
+      FieldName = 'ID'
+      ReadOnly = True
+    end
+    object tpembelianno_faktur: TWideStringField
+      FieldName = 'no_faktur'
+      Size = 11
+    end
+    object tpembeliantanggal: TDateTimeField
+      FieldName = 'tanggal'
+    end
+    object tpembelianid_pengguna: TIntegerField
+      FieldName = 'id_pengguna'
+    end
+    object tpembelianid_produk: TIntegerField
+      FieldName = 'id_produk'
+    end
+    object tpembeliannama_produk: TStringField
+      FieldKind = fkLookup
+      FieldName = 'nama_produk'
+      LookupDataSet = tproduk
+      LookupKeyFields = 'ID'
+      LookupResultField = 'nama'
+      KeyFields = 'id_produk'
+      Size = 50
+      Lookup = True
+    end
+    object tpembelianjumlah_botol: TIntegerField
+      FieldName = 'jumlah_botol'
+    end
+    object tpembelianjumlah_dus: TIntegerField
+      FieldName = 'jumlah_dus'
+    end
+    object tpembelianharga_beli_botol: TFloatField
+      FieldName = 'harga_beli_botol'
+    end
+    object tpembelianharga_beli_dus: TFloatField
+      FieldName = 'harga_beli_dus'
+    end
+    object tpembeliantotal_beli_botol: TFloatField
+      FieldName = 'total_beli_botol'
+    end
+    object tpembeliantotal_beli_dus: TFloatField
+      FieldName = 'total_beli_dus'
+    end
+    object tpembeliantotal_semua: TFloatField
+      FieldName = 'total_semua'
+    end
+    object tpembeliannama_supplier: TStringField
+      FieldKind = fkLookup
+      FieldName = 'nama_supplier'
+      LookupDataSet = tpengguna
+      LookupKeyFields = 'ID'
+      LookupResultField = 'nama'
+      KeyFields = 'id_pengguna'
+      Size = 50
+      Lookup = True
+    end
+  end
+  object dspembelian: TDataSource
+    DataSet = tpembelian
+    Left = 168
+    Top = 248
+  end
+  object frxpembelian: TfrxDBDataset
+    UserName = 'frxpembelian'
+    CloseDataSource = False
+    DataSet = tpembelian
+    BCDToCurrency = False
+    Left = 256
+    Top = 248
+  end
+  object tpenjualan: TADODataSet
+    Active = True
+    Connection = Koneksi
+    CursorType = ctStatic
+    CommandText = 'select * from tpenjualan'
+    Parameters = <>
+    Left = 56
+    Top = 312
+    object tpenjualanID: TAutoIncField
+      FieldName = 'ID'
+      ReadOnly = True
+    end
+    object tpenjualanno_faktur: TWideStringField
+      FieldName = 'no_faktur'
+      Size = 11
+    end
+    object tpenjualantanggal: TDateTimeField
+      FieldName = 'tanggal'
+    end
+    object tpenjualanid_pengguna: TIntegerField
+      FieldName = 'id_pengguna'
+    end
+    object tpenjualannama_pelanggan: TStringField
+      FieldKind = fkLookup
+      FieldName = 'nama_pelanggan'
+      LookupDataSet = tpengguna
+      LookupKeyFields = 'ID'
+      LookupResultField = 'nama'
+      KeyFields = 'id_pengguna'
+      Size = 50
+      Lookup = True
+    end
+    object tpenjualanid_produk: TIntegerField
+      FieldName = 'id_produk'
+    end
+    object tpenjualannama_produk: TStringField
+      FieldKind = fkLookup
+      FieldName = 'nama_produk'
+      LookupDataSet = tproduk
+      LookupKeyFields = 'ID'
+      LookupResultField = 'nama'
+      KeyFields = 'id_produk'
+      Size = 50
+      Lookup = True
+    end
+    object tpenjualanjumlah_botol: TIntegerField
+      FieldName = 'jumlah_botol'
+    end
+    object tpenjualanjumlah_dus: TIntegerField
+      FieldName = 'jumlah_dus'
+    end
+    object tpenjualanharga_jual_botol: TFloatField
+      FieldName = 'harga_jual_botol'
+    end
+    object tpenjualanharga_jual_dus: TFloatField
+      FieldName = 'harga_jual_dus'
+    end
+    object tpenjualantotal_jual_botol: TFloatField
+      FieldName = 'total_jual_botol'
+    end
+    object tpenjualantotal_jual_dus: TFloatField
+      FieldName = 'total_jual_dus'
+    end
+    object tpenjualantotal_semua: TFloatField
+      FieldName = 'total_semua'
+    end
+  end
+  object dspenjualan: TDataSource
+    DataSet = tpenjualan
+    Left = 168
+    Top = 312
+  end
+  object frxpenjualan: TfrxDBDataset
+    UserName = 'frxpenjualan'
+    CloseDataSource = False
+    DataSet = tpenjualan
+    BCDToCurrency = False
+    Left = 256
+    Top = 312
+  end
+  object trusakhilang: TADODataSet
+    Active = True
+    Connection = Koneksi
+    CursorType = ctStatic
+    CommandText = 'select * from trusakhilang'
+    Parameters = <>
+    Left = 56
+    Top = 376
+    object trusakhilangID: TAutoIncField
+      FieldName = 'ID'
+      ReadOnly = True
+    end
+    object trusakhilangno_transaksi: TWideStringField
+      FieldName = 'no_transaksi'
+      Size = 11
+    end
+    object trusakhilangtanggal: TDateTimeField
+      FieldName = 'tanggal'
+    end
+    object trusakhilangid_produk: TIntegerField
+      FieldName = 'id_produk'
+    end
+    object trusakhilangnama_produk: TStringField
+      FieldKind = fkLookup
+      FieldName = 'nama_produk'
+      LookupDataSet = tproduk
+      LookupKeyFields = 'ID'
+      LookupResultField = 'nama'
+      KeyFields = 'id_produk'
+      Size = 50
+      Lookup = True
+    end
+    object trusakhilangjumlah_botol: TIntegerField
+      FieldName = 'jumlah_botol'
+    end
+    object trusakhilangjumlah_dus: TIntegerField
+      FieldName = 'jumlah_dus'
+    end
+    object trusakhilangketerangan: TWideStringField
+      FieldName = 'keterangan'
+      Size = 100
+    end
+    object trusakhilangharga_beli_botol: TFloatField
+      FieldName = 'harga_beli_botol'
+    end
+    object trusakhilangharga_beli_dus: TFloatField
+      FieldName = 'harga_beli_dus'
+    end
+    object trusakhilangtotal_beli_botol: TFloatField
+      FieldName = 'total_beli_botol'
+    end
+    object trusakhilangtotal_beli_dus: TFloatField
+      FieldName = 'total_beli_dus'
+    end
+    object trusakhilangtotal_semua: TFloatField
+      DisplayLabel = 'Total Kerugian'
+      FieldName = 'total_semua'
+    end
+  end
+  object dsrusakhilang: TDataSource
+    DataSet = trusakhilang
+    Left = 168
+    Top = 376
+  end
+  object frxrusakhilang: TfrxDBDataset
+    UserName = 'frxrusakhilang'
+    CloseDataSource = False
+    DataSet = trusakhilang
+    BCDToCurrency = False
+    Left = 256
+    Top = 376
+  end
+  object VLabaRugi: TVirtualTable
+    Active = True
+    FieldDefs = <
+      item
+        Name = 'total_penjualan'
+        DataType = ftInteger
+      end
+      item
+        Name = 'total_pembelian'
+        DataType = ftInteger
+      end
+      item
+        Name = 'total_rusakhilang'
+        DataType = ftInteger
+      end
+      item
+        Name = 'total_labarugi'
+        DataType = ftInteger
+      end
+      item
+        Name = 'keterangan'
+        DataType = ftString
+        Size = 20
+      end>
+    Left = 336
+    Top = 136
+    Data = {
+      030005000F00746F74616C5F70656E6A75616C616E03000000000000000F0074
+      6F74616C5F70656D62656C69616E03000000000000001100746F74616C5F7275
+      73616B68696C616E6703000000000000000E00746F74616C5F6C616261727567
+      6903000000000000000A006B65746572616E67616E0100140000000000000000
+      000000}
+  end
+  object frxlabarugi: TfrxDBDataset
+    UserName = 'frxlabarugi'
+    CloseDataSource = False
+    DataSet = VLabaRugi
+    BCDToCurrency = False
+    Left = 392
+    Top = 136
+  end
+end
