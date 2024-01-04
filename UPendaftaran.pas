@@ -1,0 +1,134 @@
+unit UPendaftaran;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls;
+
+type
+  TFPendaftaran = class(TForm)
+    PanelJudul: TPanel;
+    GroupBox1: TGroupBox;
+    GroupBox2: TGroupBox;
+    Label1: TLabel;
+    ENama: TEdit;
+    BSimpan: TButton;
+    BLogin: TButton;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    EAlamat: TEdit;
+    ENoHP: TEdit;
+    EUsername: TEdit;
+    EPassword: TEdit;
+    Label6: TLabel;
+    RLevel: TRadioGroup;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+    procedure BSimpanClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FPendaftaran: TFPendaftaran;
+
+implementation
+
+uses UDM, ULogin;
+
+{$R *.dfm}
+function Encrypt (const s:string;cryptint:Integer):string;
+var
+i:integer;
+s2:string;
+begin
+if not (length(s)=0) then
+  begin
+  for i:=1 to length(s) do
+    s2:=s2+chr(ord(s[i])+cryptint);
+  result:=s2;
+  end
+end;
+
+function Decrypt(const s:string;cryptint:Integer):string;
+var
+i:integer;
+s2:string;
+begin
+if not (length(s)=0) then
+  begin
+  for i:=1 to length(s) do
+    s2:=s2+chr(ord(s[i])-cryptint);
+  result:=s2;
+  end
+end;
+
+procedure TFPendaftaran.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+Application.Terminate;
+end;
+
+procedure TFPendaftaran.FormShow(Sender: TObject);
+begin
+ENama.Clear;
+EUsername.Clear;
+EPassword.Clear;
+EAlamat.Clear;
+ENoHP.Clear;
+RLevel.ItemIndex:=0;
+DM.tpengguna.Active:=false;
+DM.tpengguna.CommandText:='select * from tpengguna';
+DM.tpengguna.Active:=true;
+end;
+
+procedure TFPendaftaran.BSimpanClick(Sender: TObject);
+var
+nama,alamat,nohp,username,password,level,status:string;
+begin
+if messagedlg('Apakah anda ingin menyimpan data ini?',mtconfirmation,[mbYes]+[mbNo],0)=mrYes then
+  begin
+  nama:=ENama.Text;
+  alamat:=EAlamat.Text;
+  nohp:=ENoHP.Text;
+  username:=EUsername.Text;
+  password:=EPassword.Text;
+  if RLevel.ItemIndex=0 then level:='Pelanggan'
+  else level:='Supplier';
+  status:='Belum Aktif';
+  if (nama='') or (alamat='') or (nohp='') or (username='') or (password='') then
+    begin
+    ShowMessage('Mohon lengkapi form sebelum disimpan!');
+    ENama.SetFocus;
+    end
+  else
+    begin
+    if DM.tpengguna.Locate('username',username,[])=true then
+      begin
+      ShowMessage('Maaf username ini sudah ada');
+      EUsername.SetFocus;
+        end
+    else
+      begin
+      DM.tpengguna.Append;
+      DM.tpengguna['nama']:=nama;
+      DM.tpengguna['alamat']:=nama;
+      DM.tpengguna['nohp']:=nama;            
+      DM.tpengguna['username']:=username;
+      DM.tpengguna['password']:=Encrypt(password,length(password));
+      DM.tpengguna['level']:=level;
+      DM.tpengguna['status']:=status;
+      DM.tpengguna.Post;
+      ShowMessage('Selamat!Pendaftaran akun berhasil, silahkan hubungi admin untuk aktivasi!');
+      FLogin.Show;
+      FPendaftaran.Hide;
+      end
+    end
+  end
+end;
+
+end.
